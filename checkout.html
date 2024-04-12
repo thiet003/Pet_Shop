@@ -25,7 +25,7 @@
     ================================================== -->
     <script src="js/modernizr.js"></script>
   </head>
-  <body>
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
         <path fill="currentColor" d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.922 9.922 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3zm0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8z" />
@@ -36,8 +36,11 @@
       <symbol xmlns="http://www.w3.org/2000/svg" id="cart" viewBox="0 0 16 16">
         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
       </symbol>
-      <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
-        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+      <symbol xmlns="http://www.w3.org/2000/svg" id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="cart-outline" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
       </symbol>
       <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
         <path fill="currentColor" d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
@@ -64,7 +67,7 @@
         <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
       </symbol>
     </svg>
-
+    
     <!-- Header -->
     <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
       <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
@@ -137,264 +140,118 @@
         </div>
       </nav>
     </header>
-    <!-- Product -->
-    <section id="selling-product" class="single-product padding-xlarge">
-      <div class="container">
-        <div class="row mt-5">
-          <div class="col-lg-6">
-            <div class="product-preview mb-3">
-              <img src="images/singel-product-item.jpg" alt="single-product" class="img-fluid">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="product-info">
-              <div class="element-header">
-                <h3 itemprop="name" class="display-7 text-uppercase">Pink Watch</h3>
-                <div class="rating-container d-flex align-items-center">
-                  <div class="rating" data-rating="1" onclick=rate(1)>
-                    <svg class="star star-fill">
-                      <use xlink:href="#star-fill"></use>
-                    </svg>
-                    <span class="rating-count ps-2">5.2</span>
-                  </div>
-                </div>
-              </div>
-              <div class="product-price pt-3 pb-3">
-                <strong class="text-primary display-6 fw-bold">15,000,000đ</strong>
-              </div>
-              <p>Đồng hồ màu hồng với mặt tròn, viền kim loại bóng và dây đeo bằng da mềm. Thiết kế thanh lịch, hiện đại, phù hợp cho cả nam và nữ, dễ dàng phối đồ.</p>
-              <div class="cart-wrap padding-small">
-                <div class="color-options product-select">
-                  <div class="color-toggle" data-option-index="0">
-                    <h4 class="item-title text-uppercase text-dark text-decoration-underline">Màu:</h4>
-                    <ul class="select-list list-unstyled d-flex">
-                      <li class="select-item pe-3" data-val="Green" title="Green">
-                        <a href="#">Xanh</a>
-                      </li>
-                      <li class="select-item pe-3" data-val="Orange" title="Orange">
-                        <a href="#">Da cam</a>
-                      </li>
-                      <li class="select-item pe-3" data-val="Red" title="Red">
-                        <a href="#">Đỏ</a>
-                      </li>
-                      <li class="select-item" data-val="Black" title="Black">
-                        <a href="#">Đen</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="swatch product-select" data-option-index="1">
-                  <h4 class="item-title text-uppercase text-dark text-decoration-underline">Size:</h4>
-                  <ul class="select-list list-unstyled d-flex">
-                    <li data-value="S" class="select-item pe-3">
-                      <a href="#">XL</a>
-                    </li>
-                    <li data-value="M" class="select-item pe-3">
-                      <a href="#">L</a>
-                    </li>
-                    <li data-value="L" class="select-item pe-3">
-                      <a href="#">M</a>
-                    </li>
-                    <li data-value="L" class="select-item">
-                      <a href="#">S</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="product-quantity">
-                  <div class="stock-number text-dark">2 trong kho</div>
-                  <div class="stock-button-wrap pt-3">
-
-                    <div class="input-group product-qty">
-                        <span class="input-group-btn">
-                            <button type="button" class="quantity-left-minus btn btn-number"  data-type="minus" data-field="">
-                              -
-                            </button>
-                        </span>
-                        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
-                        <span class="input-group-btn">
-                            <button type="button" class="quantity-right-plus btn btn-number" data-type="plus" data-field="">
-                                +
-                            </button>
-                        </span>
-                    </div>
-                    <div class="qty-button d-flex flex-wrap pt-3">
-                      <button type="submit" class="btn btn-primary btn-medium text-uppercase me-3 mt-3">Mua ngay</button>
-                      <button type="submit" name="add-to-cart" value="1269" class="btn btn-black btn-medium text-uppercase mt-3">Giỏ hàng</button>                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="meta-product py-2">
-                <div class="meta-item d-flex align-items-baseline">
-                  <h4 class="item-title no-margin pe-2">SKU:</h4>
-                  <ul class="select-list list-unstyled d-flex">
-                    <li data-value="S" class="select-item">1223</li>
-                  </ul>
-                </div>
-                <div class="meta-item d-flex align-items-baseline">
-                  <h4 class="item-title no-margin pe-2">Danh mục:</h4>
-                  <ul class="select-list list-unstyled d-flex">
-                    <li data-value="S" class="select-item">
-                      <a href="#">Đồng hồ</a>,
-                    </li>
-                    <li data-value="S" class="select-item">
-                      <a href="#"> Cảm biến</a>,
-                    </li>
-                  </ul>
-                </div>
-                <div class="meta-item d-flex align-items-baseline">
-                  <h4 class="item-title no-margin pe-2">Tags:</h4>
-                  <ul class="select-list list-unstyled d-flex">
-                    <li data-value="S" class="select-item">
-                      <a href="#">Cổ điển</a>,
-                    </li>
-                    <li data-value="S" class="select-item">
-                      <a href="#"> Hiện đại</a>
-                    </li>
-                  </ul>
-                </div>
+    <!-- Banner -->
+    <section class="hero-section position-relative bg-light-blue padding-medium">
+      <div class="hero-content">
+        <div class="container">
+          <div class="row">
+            <div class="text-center padding-large no-padding-bottom">
+              <h1 class="display-2 text-uppercase text-dark">Checkout</h1>
+              <div class="breadcrumbs">
+                <span class="item">
+                  <a href="index.html">Trang chủ ></a>
+                </span>
+                <span class="item">Thanh toán</span>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-
-   <!-- Related product -->
-    <section id="related-products" class="product-store position-relative padding-large">
+    <!-- Checkout -->
+    <section class="shopify-cart checkout-wrap padding-large">
       <div class="container">
-        <div class="row">
-          <div class="display-header d-flex justify-content-between pb-3">
-            <h2 class="display-7 text-dark text-uppercase">Sản phẩm tương tự</h2>
-            <div class="btn-right">
-              <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Tới cửa hàng</a>
+        <form class="form-group">
+          <div class="row d-flex flex-wrap">
+            <div class="col-lg-6">
+              <h2 class="display-7 text-uppercase text-dark pb-4">Chi tiết thanh toán</h2>
+              <div class="billing-details">
+                <label for="fname">Họ*</label>
+                <input type="text" id="fname" name="firstname" class="form-control mt-2 mb-4 ps-3">
+                <label for="lname">Tên*</label>
+                <input type="text" id="lname" name="lastname" class="form-control mt-2 mb-4 ps-3">
+                <label for="cname">Số điện thoại*</label>
+                <input type="text" id="cname" name="companyname" class="form-control mt-2 mb-4">
+                <label for="cname">Địa chỉ*</label>
+                <input type="text" id="address" name="companyname" class="form-control mt-2 mb-4">
+                <label for="email">Email*</label>
+                <input type="text" id="email" name="email" class="form-control mt-2 mb-4 ps-3">
+                <label for="zip">Zip Code *</label>
+                <input type="text" id="zip" name="zip" class="form-control mt-2 mb-4 ps-3">
+                
+              </div>
             </div>
-          </div>
-          <div class="swiper product-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
-                  <div class="image-holder">
-                    <img src="images/product-item1.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <div class="btn-left">
-                        <a href="#" class="btn btn-medium btn-black">Giỏ hàng</a>
-                        <svg class="cart-outline position-absolute">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 10</a>
-                    </h3>
-                    <span class="item-price text-primary">14,000,000đ</span>
-                  </div>
-                </div>
+            <div class="col-lg-6">
+              <h2 class="display-7 text-uppercase text-dark pb-4">THÔNG TIN THÊM</h2>
+              <div class="billing-details">
+                <label for="fname">Ghi chú đơn hàng</label>
+                <textarea class="form-control pt-3 pb-3 ps-3 mt-2" placeholder="Notes about your order. Like special notes for delivery."></textarea>
               </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
-                  <div class="image-holder">
-                    <img src="images/product-item2.jpg" alt="product-item" class="img-fluid">
+              <div class="your-order mt-5">
+                <h2 class="display-7 text-uppercase text-dark pb-4">Giỏ hàng</h2>
+                <div class="total-price">
+                  <table cellspacing="0" class="table">
+                    <tbody>
+                      <tr class="subtotal border-top border-bottom pt-2 pb-2 text-uppercase">
+                        <th>Tổng</th>
+                        <td data-title="Subtotal">
+                          <span class="price-amount amount text-primary ps-5">
+                            <bdi>
+                              <span class="price-currency-symbol"></span>35,000,000đ </bdi>
+                          </span>
+                        </td>
+                      </tr>
+                      <tr class="order-total border-bottom pt-2 pb-2 text-uppercase">
+                        <th>Thành tiền</th>
+                        <td data-title="Total">
+                          <span class="price-amount amount text-primary ps-5">
+                            <bdi>
+                              <span class="price-currency-symbol"></span>35,000,000đ </bdi>
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="list-group mt-5 mb-3">
+                    <label class="list-group-item d-flex gap-2 border-0">
+                      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked>
+                      <span>
+                        <strong class="text-uppercase">CHUYỂN KHOẢN TRỰC TIẾP</strong>
+                        <small class="d-block text-body-secondary">Thực hiện thanh toán trực tiếp vào tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng ID đơn hàng của bạn. Đơn đặt hàng của bạn sẽ được chuyển đi sau khi tiền đã được xóa trong tài khoản của chúng tôi.</small>
+                      </span>
+                    </label>
+                    <label class="list-group-item d-flex gap-2 border-0">
+                      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="">
+                      <span>
+                        <strong class="text-uppercase">KIỂM TRA THANH TOÁN</strong>
+                        <small class="d-block text-body-secondary">Vui lòng gửi séc đến Tên cửa hàng, Đường cửa hàng, Thị trấn cửa hàng, Tiểu bang / Quận của cửa hàng, Mã bưu điện của cửa hàng.</small>
+                      </span>
+                    </label>
+                    <label class="list-group-item d-flex gap-2 border-0">
+                      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+                      <span>
+                        <strong class="text-uppercase">THANH TOÁN KHI GIAO HÀNG</strong>
+                        <small class="d-block text-body-secondary">Thanh toán bằng tiền mặt khi giao hàng.</small>
+                      </span>
+                    </label>
+                    <label class="list-group-item d-flex gap-2 border-0">
+                      <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+                      <span>
+                        <strong class="text-uppercase">Paypal</strong>
+                        <small class="d-block text-body-secondary">Thanh toán qua PayPal; bạn có thể thanh toán bằng thẻ tín dụng nếu bạn không có tài khoản PayPal.</small>
+                      </span>
+                    </label>
                   </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <div class="btn-left">
-                        <a href="#" class="btn btn-medium btn-black">Giỏ hàng</a>
-                        <svg class="cart-outline position-absolute">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 11</a>
-                    </h3>
-                    <span class="item-price text-primary">15,000,000đ</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
-                  <div class="image-holder">
-                    <img src="images/product-item3.jpg" alt="product-item" class="img-fluid">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <div class="btn-left">
-                        <a href="#" class="btn btn-medium btn-black">Giỏ hàng</a>
-                        <svg class="cart-outline position-absolute">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 8</a>
-                    </h3>
-                    <span class="item-price text-primary">11,000,000đ</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
-                  <div class="image-holder">
-                    <img src="images/product-item4.jpg" alt="product-item" class="product-image">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <div class="btn-left">
-                        <a href="#" class="btn btn-medium btn-black">Giỏ hàng</a>
-                        <svg class="cart-outline position-absolute">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 13</a>
-                    </h3>
-                    <span class="item-price text-primary">30,000,000đ</span>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="product-card position-relative">
-                  <div class="image-holder">
-                    <img src="images/product-item5.jpg" alt="product-item" class="product-image">
-                  </div>
-                  <div class="cart-concern position-absolute">
-                    <div class="cart-button d-flex">
-                      <div class="btn-left">
-                        <a href="#" class="btn btn-medium btn-black">Giỏ hàng</a>
-                        <svg class="cart-outline position-absolute">
-                          <use xlink:href="#cart-outline"></use>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="#">Iphone 12</a>
-                    </h3>
-                    <span class="item-price text-primary">26,000,000đ</span>
-                  </div>
+                  <button type="submit" name="submit" class="btn btn-dark btn-medium text-uppercase btn-rounded-none">Đặt hàng</button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
-      <div class="swiper-pagination position-absolute text-center"></div>
     </section>
     <!-- Instagram -->
-    <section id="instagram" class="padding-large overflow-hidden no-padding-top">
+    <section id="instagram" class="padding-large overflow-hidden">
       <div class="container">
         <div class="row">
           <div class="display-header text-uppercase text-dark text-center pb-3">

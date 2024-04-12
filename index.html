@@ -1,1401 +1,721 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Ministore</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
 
-<head>
-  <title>Trang chủ</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="author" content="">
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-<link href="https://db.onlinewebfonts.com/c/bab845ed46b9ada0916b126689b6d069?family=Sofia+Pro+Viet" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/vendor.css">
-<link rel="stylesheet" type="text/css" href="style.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-</head>
-
-<body>
-  <div class="preloader-wrapper">
-    <div class="preloader">
-    </div>
-  </div>
-  <!-- Giỏ hàng -->
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart" aria-labelledby="My Cart">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="order-md-last">
-        <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">Giỏ hàng</span>
-          <span class="badge bg-primary rounded-circle pt-2">3</span>
-        </h4>
-        <ul class="list-group mb-3">
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Hoodie nâu</h6>
-              <small class="text-body-secondary">Brief description</small>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <title>Search</title>
+        <path fill="currentColor" d="M19 3C13.488 3 9 7.488 9 13c0 2.395.84 4.59 2.25 6.313L3.281 27.28l1.439 1.44l7.968-7.969A9.922 9.922 0 0 0 19 23c5.512 0 10-4.488 10-10S24.512 3 19 3zm0 2c4.43 0 8 3.57 8 8s-3.57 8-8 8s-8-3.57-8-8s3.57-8 8-8z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="user" viewBox="0 0 16 16">
+        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="cart" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+      </symbol>
+      <svg xmlns="http://www.w3.org/2000/svg" id="chevron-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+      </svg>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="chevron-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="cart-outline" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="quality" viewBox="0 0 16 16">
+        <path d="M9.669.864 8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193.684 1.365 1.086 1.072L12.387 6l.248 1.506-1.086 1.072-.684 1.365-1.51.229L8 10.874l-1.355-.702-1.51-.229-.684-1.365-1.086-1.072L3.614 6l-.25-1.506 1.087-1.072.684-1.365 1.51-.229L8 1.126l1.356.702 1.509.229z" />
+        <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="price-tag" viewBox="0 0 16 16">
+        <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z" />
+        <path d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="shield-plus" viewBox="0 0 16 16">
+        <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+        <path d="M8 4.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V9a.5.5 0 0 1-1 0V7.5H6a.5.5 0 0 1 0-1h1.5V5a.5.5 0 0 1 .5-.5z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
+        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="star-empty" viewBox="0 0 16 16">
+        <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="star-half" viewBox="0 0 16 16">
+        <path d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="quote" viewBox="0 0 24 24">
+        <path fill="currentColor" d="m15 17l2-4h-4V6h7v7l-2 4h-3Zm-9 0l2-4H4V6h7v7l-2 4H6Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 32 32">
+        <path fill="currentColor" d="M29.41 9.26a3.5 3.5 0 0 0-2.47-2.47C24.76 6.2 16 6.2 16 6.2s-8.76 0-10.94.59a3.5 3.5 0 0 0-2.47 2.47A36.13 36.13 0 0 0 2 16a36.13 36.13 0 0 0 .59 6.74a3.5 3.5 0 0 0 2.47 2.47c2.18.59 10.94.59 10.94.59s8.76 0 10.94-.59a3.5 3.5 0 0 0 2.47-2.47A36.13 36.13 0 0 0 30 16a36.13 36.13 0 0 0-.59-6.74ZM13.2 20.2v-8.4l7.27 4.2Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 256 256">
+        <path fill="currentColor" d="m245.66 77.66l-29.9 29.9C209.72 177.58 150.67 232 80 232c-14.52 0-26.49-2.3-35.58-6.84c-7.33-3.67-10.33-7.6-11.08-8.72a8 8 0 0 1 3.85-11.93c.26-.1 24.24-9.31 39.47-26.84a110.93 110.93 0 0 1-21.88-24.2c-12.4-18.41-26.28-50.39-22-98.18a8 8 0 0 1 13.65-4.92c.35.35 33.28 33.1 73.54 43.72V88a47.87 47.87 0 0 1 14.36-34.3A46.87 46.87 0 0 1 168.1 40a48.66 48.66 0 0 1 41.47 24H240a8 8 0 0 1 5.66 13.66Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 256 256">
+        <path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56.06 56.06 0 0 0-56 56v96a56.06 56.06 0 0 0 56 56h96a56.06 56.06 0 0 0 56-56V80a56.06 56.06 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="linkedin" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="nav-icon" viewBox="0 0 16 16">
+        <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="close" viewBox="0 0 16 16">
+        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+      </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="navbar-icon" viewBox="0 0 16 16">
+        <path d="M14 10.5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-7a.5.5 0 0 0 0 1h7a.5.5 0 0 0 .5-.5zm0-3a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0 0 1h11a.5.5 0 0 0 .5-.5z" />
+      </symbol>
+    </svg>  
+    <!-- Header -->
+    <header id="header" class="site-header header-scrolled position-fixed text-black bg-light">
+      <nav id="header-nav" class="navbar navbar-expand-lg px-3 mb-3">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="images/main-logo.png" class="logo">
+          </a>
+          <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <svg class="navbar-icon">
+              <use xlink:href="#navbar-icon"></use>
+            </svg>
+          </button>
+          <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
+            <div class="offcanvas-header px-4 pb-0">
+              <a class="navbar-brand" href="index.html">
+                <img src="images/main-logo.png" class="logo">
+              </a>
+              <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
             </div>
-            <span class="text-body-secondary">200,000đ</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Sữa chó</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">53,000đ</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between lh-sm">
-            <div>
-              <h6 class="my-0">Đồ chơi</h6>
-              <small class="text-body-secondary">Brief description</small>
-            </div>
-            <span class="text-body-secondary">100,000đ</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between">
-            <span class="fw-bold">Tổng (VNĐ)</span>
-            <strong>353,000đ</strong>
-          </li>
-        </ul>
-
-        <button class="w-100 btn btn-primary btn-lg" type="submit">Thanh toán</button>
-      </div>
-    </div>
-  </div>
-  <!-- Tìm kiếm -->
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch"
-    aria-labelledby="Search">
-    <div class="offcanvas-header justify-content-center">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-
-      <div class="order-md-last">
-        <h4 class="text-primary text-uppercase mb-3">
-          Search
-        </h4>
-        <div class="search-bar border rounded-2 border-dark-subtle">
-          <form id="search-form" class="text-center d-flex align-items-center" action="" method="">
-            <input type="text" class="form-control border-0 bg-transparent" placeholder="Search Here" />
-            <iconify-icon icon="tabler:search" class="fs-4 me-3"></iconify-icon>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Header -->
-  <header>
-    <div class="container py-2">
-      <div class="row py-4 pb-0 pb-sm-4 align-items-center ">
-
-        <div class="col-sm-4 col-lg-3 text-center text-sm-start">
-          <div class="main-logo">
-            <a href="index.html">
-              <img src="images/logo.png" alt="logo" class="img-fluid">
-            </a>
-          </div>
-        </div>
-        <!-- Search -->
-        <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
-          <div class="search-bar border rounded-2 px-3 border-dark-subtle">
-            <form id="search-form" class="text-center d-flex align-items-center" action="" method="">
-              <input type="text" class="form-control border-0 bg-transparent"
-                placeholder="Tìm kiếm hơn 10,000 sản phẩm" />
-            </form>
-          </div>
-        </div>
-        <!-- Contact-->
-        <div
-          class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-          <div class="support-box text-end d-none d-xl-block">
-            <span class="fs-6 secondary-font text-muted">SĐT</span>
-            <h5 class="mb-0">+849-76134251</h5>
-          </div>
-          <div class="support-box text-end d-none d-xl-block">
-            <span class="fs-6 secondary-font text-muted">Email</span>
-            <h5 class="mb-0">thiet@gmail.com</h5>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <hr class="m-0">
-    </div>
-
-    <div class="container">
-      <nav class="main-menu d-flex navbar navbar-expand-lg ">
-        <div class="d-flex d-lg-none align-items-end mt-3">
-          <ul class="d-flex justify-content-end list-unstyled m-0">
-            <li>
-              <a href="account.html" class="mx-3">
-                <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
-              </a>
-            </li>
-            <li>
-              <a href="wishlist.html" class="mx-3">
-                <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                aria-controls="offcanvasCart">
-                <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                  03
-                </span>
-              </a>
-            </li>
-
-            <li>
-              <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch"
-                aria-controls="offcanvasSearch">
-                <iconify-icon icon="tabler:search" class="fs-4"></iconify-icon>
-                </span>
-              </a>
-            </li>
-          </ul>
-
-        </div>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-          aria-controls="offcanvasNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          <div class="offcanvas-header justify-content-center">
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          
-          <div class="offcanvas-body justify-content-between">
-            <select class="filter-categories border-0 mb-0 me-5">
-              <option>Danh mục</option>
-              <option>Quần áo</option>
-              <option>Thức ăn</option>
-              <option>Đồ chơi</option>
-            </select>
-            <!-- navbar -->
-            <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
-              <li class="nav-item">
-                <a href="index.html" class="nav-link active">Trang chủ</a>
-              </li>
-              <li class="nav-item">
-                <a href="shop.html" class="nav-link">Cửa hàng</a>
-              </li>
-              <li class="nav-item">
-                <a href="blog.html" class="nav-link">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="contact.html" class="nav-link">Liên hệ</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">Khác</a>
-              </li>
-            </ul>
-
-            <div class="d-none d-lg-flex align-items-end">
-              <ul class="d-flex justify-content-end list-unstyled m-0">
-                <li>
-                  <a href="account.html" class="mx-3">
-                    <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
-                  </a>
+            <div class="offcanvas-body">
+              <ul id="navbar" class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link me-4 active" href="#billboard">Trang chủ</a>
                 </li>
-                <li>
-                  <a href="wishlist.html" class="mx-3">
-                    <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
-                  </a>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="shop.html">Cửa hàng</a>
                 </li>
-
-                <li class="">
-                  <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
-                    aria-controls="offcanvasCart">
-                    <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                    <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                      03
-                    </span>
-                  </a>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="cart.html">Giỏ hàng</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="contact.html">Liên hệ</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link me-4" href="contact.html">Khác</a>
+                </li>
+                <li class="nav-item">
+                  <div class="user-items ps-5">
+                    <ul class="d-flex justify-content-end list-unstyled">
+                      <li class="search-item pe-3">
+                        <a href="#" class="search-button">
+                          <svg class="search">
+                            <use xlink:href="#search"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="pe-3">
+                        <a href="#">
+                          <svg class="user">
+                            <use xlink:href="#user"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="cart.html">
+                          <svg class="cart">
+                            <use xlink:href="#cart"></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
-
             </div>
-
           </div>
-
         </div>
-
       </nav>
-    </div>
-  </header>
-  <!-- Banner -->
-  <section id="banner" style="background: #F9F3EC;">
-    <div class="container">
+    </header>
+    <!-- Banner -->
+    <section id="billboard" class="position-relative overflow-hidden bg-light-blue">
       <div class="swiper main-swiper">
         <div class="swiper-wrapper">
-
-          <div class="swiper-slide py-5">
-            <div class="row banner-content align-items-center">
-              <div class="img-wrapper col-md-5">
-                <img src="images/banner-img.png" class="img-fluid">
+          <div class="swiper-slide">
+            <div class="container">
+              <div class="row d-flex align-items-center">
+                <div class="col-md-6">
+                  <div class="banner-content">
+                    <h1 class="display-2 text-uppercase text-dark pb-5">Your Products Are Great.</h1>
+                    <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Product</a>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="image-holder">
+                    <img src="images/banner-image.png" alt="banner">
+                  </div>
+                </div>
               </div>
-              <div class="content-wrapper col-md-7 p-5 mb-5">
-                <div class="secondary-font text-primary text-uppercase mb-4">Save 10 - 20 % off</div>
-                <h2 class="banner-title display-1 fw-normal">Best destination for <span class="text-primary">your
-                    pets</span>
-                </h2>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-                  mua ngay
-                  <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-                    <use xlink:href="#arrow-right"></use>
-                  </svg></a>
-              </div>
-
             </div>
           </div>
-          <div class="swiper-slide py-5">
-            <div class="row banner-content align-items-center">
-              <div class="img-wrapper col-md-5">
-                <img src="images//banner-img3.png" class="img-fluid">
+          <div class="swiper-slide">
+            <div class="container">
+              <div class="row d-flex flex-wrap align-items-center">
+                <div class="col-md-6">
+                  <div class="banner-content">
+                    <h1 class="display-2 text-uppercase text-dark pb-5">Technology Hack You Won't Get</h1>
+                    <a href="shop.html" class="btn btn-medium btn-dark text-uppercase btn-rounded-none">Shop Product</a>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="image-holder">
+                    <img src="images/banner-image.png" alt="banner">
+                  </div>
+                </div>
               </div>
-              <div class="content-wrapper col-md-7 p-5 mb-5">
-                <div class="secondary-font text-primary text-uppercase mb-4">Save 10 - 20 % off</div>
-                <h2 class="banner-title display-1 fw-normal">Best destination for <span class="text-primary">your
-                    pets</span>
-                </h2>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-                  mua ngay
-                  <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-                    <use xlink:href="#arrow-right"></use>
-                  </svg></a>
-              </div>
-
             </div>
           </div>
-          <div class="swiper-slide py-5">
-            <div class="row banner-content align-items-center">
-              <div class="img-wrapper col-md-5">
-                <img src="images/banner-img4.png" class="img-fluid">
-              </div>
-              <div class="content-wrapper col-md-7 p-5 mb-5">
-                <div class="secondary-font text-primary text-uppercase mb-4">Save 10 - 20 % off</div>
-                <h2 class="banner-title display-1 fw-normal">Best destination for <span class="text-primary">your
-                    pets</span>
-                </h2>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-                  mua ngay
-                  <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-                    <use xlink:href="#arrow-right"></use>
-                  </svg></a>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-pagination mb-5"></div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="categories">
-    <div class="container my-3 py-5">
-      <div class="row my-5">
-        <div class="col text-center">
-          <a href="#" class="categories-item">
-            <iconify-icon class="category-icon" icon="ph:bowl-food"></iconify-icon>
-            <h5>Thức ăn</h5>
-          </a>
-        </div>
-        <div class="col text-center">
-          <a href="#" class="categories-item">
-            <iconify-icon class="category-icon" icon="ph:bird"></iconify-icon>
-            <h5>Cửa hàng chim</h5>
-          </a>
-        </div>
-        <div class="col text-center">
-          <a href="#" class="categories-item">
-            <iconify-icon class="category-icon" icon="ph:dog"></iconify-icon>
-            <h5>Cửa hàng chó</h5>
-          </a>
-        </div>
-        <div class="col text-center">
-          <a href="#" class="categories-item">
-            <iconify-icon class="category-icon" icon="ph:fish"></iconify-icon>
-            <h5>Cửa hàng cá</h5>
-          </a>
-        </div>
-        <div class="col text-center">
-          <a href="#" class="categories-item">
-            <iconify-icon class="category-icon" icon="ph:cat"></iconify-icon>
-            <h5>Cửa hàng mèo</h5>
-          </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="clothing" class="my-5 overflow-hidden">
-    <div class="container pb-5">
-
-      <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
-        <h2 class="display-3 fw-normal">Quần áo</h2>
-        <div>
-          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-            Mua ngay
-            <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-              <use xlink:href="#arrow-right"></use>
-            </svg></a>
+    </section>
+    <!-- Landing pages -->
+    <section id="company-services" class="padding-large">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="cart-outline">
+                  <use xlink:href="#cart-outline" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">FREE DELIVERY</h3>
+                <p>Chúng tôi giao hàng tận nơi với cước phí rẻ nhất.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="quality">
+                  <use xlink:href="#quality" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">QUALITY GUARANTEE</h3>
+                <p>Chất lượng các sản phẩm luôn được đảm bảo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="price-tag">
+                  <use xlink:href="#price-tag" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">DAILY OFFERS</h3>
+                <p>Hàng ngày đều có những ưu đãi dành riêng cho khách hàng.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 pb-3">
+            <div class="icon-box d-flex">
+              <div class="icon-box-icon pe-3 pb-3">
+                <svg class="shield-plus">
+                  <use xlink:href="#shield-plus" />
+                </svg>
+              </div>
+              <div class="icon-box-content">
+                <h3 class="card-title text-uppercase text-dark">100% SECURE PAYMENT</h3>
+                <p>Đảm bảo các giao dịch được thanh toán an toàn.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="products-carousel swiper">
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
+    </section>
+    <!-- Mobile product -->
+    <section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
+      <div class="container">
+        <div class="row">
+          <div class="display-header d-flex justify-content-between pb-3">
+            <h2 class="display-7 text-dark text-uppercase">Sản phẩm di động</h2>
+            <div class="btn-right">
+              <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Tới cửa hàng</a>
             </div>
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item1.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">hoodie Xám</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">300,000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
+          </div>
+          <div class="swiper product-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item1.jpg" alt="product-item" class="img-fluid">
                   </div>
-
-
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Iphone 10</a>
+                    </h3>
+                    <span class="item-price text-primary">15,000,000đ</span>
+                  </div>
                 </div>
-
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item2.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Iphone 11</a>
+                    </h3>
+                    <span class="item-price text-primary">20,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item3.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Iphone 8</a>
+                    </h3>
+                    <span class="item-price text-primary">11,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item4.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Iphone 13</a>
+                    </h3>
+                    <span class="item-price text-primary">26,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item5.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Iphone 12</a>
+                    </h3>
+                    <span class="item-price text-primary">20,000,000đ</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item2.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Quần jeans</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">540,000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              -10%
-            </div>
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item3.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo len hồng</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">210,000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item4.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo lụa</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">700,000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item7.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo len</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">602,000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item8.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo ba lỗ</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">99,000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-
         </div>
       </div>
-      <!-- / products-carousel -->
-
-
-    </div>
-  </section>
-
-  <section id="foodies" class="my-5">
-    <div class="container my-5 py-5">
-
-      <div class="section-header d-md-flex justify-content-between align-items-center">
-        <h2 class="display-3 fw-normal">Đồ ăn</h2>
-        <div class="mb-4 mb-md-0">
-          <p class="m-0">
-            <button class="filter-button me-4  active" data-filter="*">tất cả</button>
-            <button class="filter-button me-4 " data-filter=".cat">mèo</button>
-            <button class="filter-button me-4 " data-filter=".dog">chó</button>
-            <button class="filter-button me-4 " data-filter=".bird">chim</button>
-          </p>
-        </div>
-        <div>
-          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-            mua ngay
-            <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-              <use xlink:href="#arrow-right"></use>
-            </svg></a>
+      <div class="swiper-pagination position-absolute text-center"></div>
+    </section>
+    <!-- Đồng hồ -->
+    <section id="smart-watches" class="product-store padding-large position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="display-header d-flex justify-content-between pb-3">
+            <h2 class="display-7 text-dark text-uppercase">Đồng hồ thông minh</h2>
+            <div class="btn-right">
+              <a href="shop.html" class="btn btn-medium btn-normal text-uppercase">Tới cửa hàng</a>
+            </div>
+          </div>
+          <div class="swiper product-watch-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item6.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Pink watch</a>
+                    </h3>
+                    <span class="item-price text-primary">11,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item7.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">Heavy watch</a>
+                    </h3>
+                    <span class="item-price text-primary">34,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item8.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">spotted watch</a>
+                    </h3>
+                    <span class="item-price text-primary">23,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item9.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">black watch</a>
+                    </h3>
+                    <span class="item-price text-primary">7,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="images/product-item10.jpg" alt="product-item" class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-absolute">
+                    <div class="cart-button d-flex">
+                      <a href="#" class="btn btn-medium btn-black">Giỏ hàng<svg class="cart-outline"><use xlink:href="#cart-outline"></use></svg></a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between pt-3">
+                    <h3 class="card-title text-uppercase">
+                      <a href="#">black watch</a>
+                    </h3>
+                    <span class="item-price text-primary">19,000,000đ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="isotope-container row">
-
-        <div class="item cat col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item9.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">hạt fresh</h3>
+      <div class="swiper-pagination position-absolute text-center"></div>
+    </section>
+    <!-- Last blog -->
+    <section id="latest-blog" class="padding-large">
+      <div class="container">
+        <div class="row">
+          <div class="display-header d-flex justify-content-between pb-3">
+            <h2 class="display-7 text-dark text-uppercase">Bài đăng</h2>
+            <div class="btn-right">
+              <a href="blog.html" class="btn btn-medium btn-normal text-uppercase">Đọc blog</a>
+            </div>
+          </div>
+          <div class="post-grid d-flex flex-wrap justify-content-between">
+            <div class="col-lg-4 col-sm-12">
+              <div class="card border-none me-3">
+                <div class="card-image">
+                  <img src="images/post-item1.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+              <div class="card-body text-uppercase">
+                <div class="card-meta text-muted">
+                  <span class="meta-date">feb 22, 2023</span>
+                  <span class="meta-category">- Gadgets</span>
+                </div>
+                <h3 class="card-title">
+                  <a href="#">Get some cool gadgets in 2023</a>
+                </h3>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <div class="card border-none me-3">
+                <div class="card-image">
+                  <img src="images/post-item2.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+              <div class="card-body text-uppercase">
+                <div class="card-meta text-muted">
+                  <span class="meta-date">feb 25, 2023</span>
+                  <span class="meta-category">- Technology</span>
+                </div>
+                <h3 class="card-title">
+                  <a href="#">Technology Hack You Won't Get</a>
+                </h3>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-12">
+              <div class="card border-none me-3">
+                <div class="card-image">
+                  <img src="images/post-item3.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+              <div class="card-body text-uppercase">
+                <div class="card-meta text-muted">
+                  <span class="meta-date">feb 22, 2023</span>
+                  <span class="meta-category">- Camera</span>
+                </div>
+                <h3 class="card-title">
+                  <a href="#">Top 10 Small Camera In The World</a>
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Instagram -->
+    <section id="instagram" class="padding-large overflow-hidden no-padding-top">
+      <div class="container">
+        <div class="row">
+          <div class="display-header text-uppercase text-dark text-center pb-3">
+            <h2 class="display-7">Instagram</h2>
+          </div>
+          <div class="d-flex flex-wrap">
+            <figure class="instagram-item pe-2">
+              <a href="https://templatesjungle.com/" class="image-link position-relative">
+                <img src="images/insta-item1.jpg" alt="instagram" class="insta-image">
+                <div class="icon-overlay position-absolute d-flex justify-content-center">
+                  <svg class="instagram">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
+                </div>
               </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
+            </figure>
+            <figure class="instagram-item pe-2">
+              <a href="https://templatesjungle.com/" class="image-link position-relative">
+                <img src="images/insta-item2.jpg" alt="instagram" class="insta-image">
+                <div class="icon-overlay position-absolute d-flex justify-content-center">
+                  <svg class="instagram">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
                 </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item dog col-md-4 col-lg-3 my-4">
-          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div>
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item10.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Hộp cơm chó</h3>
               </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
+            </figure>
+            <figure class="instagram-item pe-2">
+              <a href="https://templatesjungle.com/" class="image-link position-relative">
+                <img src="images/insta-item3.jpg" alt="instagram" class="insta-image">
+                <div class="icon-overlay position-absolute d-flex justify-content-center">
+                  <svg class="instagram">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
                 </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item dog col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item11.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Kẹo pulsistos</h3>
               </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
+            </figure>
+            <figure class="instagram-item pe-2">
+              <a href="https://templatesjungle.com/" class="image-link position-relative">
+                <img src="images/insta-item4.jpg" alt="instagram" class="insta-image">
+                <div class="icon-overlay position-absolute d-flex justify-content-center">
+                  <svg class="instagram">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
                 </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item cat col-md-4 col-lg-3 my-4">
-          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            Sold
-          </div>
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item12.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Hộp sữa chó</h3>
               </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
+            </figure>
+            <figure class="instagram-item pe-2">
+              <a href="https://templatesjungle.com/" class="image-link position-relative">
+                <img src="images/insta-item5.jpg" alt="instagram" class="insta-image">
+                <div class="icon-overlay position-absolute d-flex justify-content-center">
+                  <svg class="instagram">
+                    <use xlink:href="#instagram"></use>
+                  </svg>
                 </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item bird col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item13.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Hạt điều</h3>
               </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
+            </figure>
           </div>
-        </div>
-
-        <div class="item bird col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item14.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Hạt óc chó</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item dog col-md-4 col-lg-3 my-4">
-          <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            Sale
-          </div>
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item15.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Butchers chó</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="item cat col-md-4 col-lg-3 my-4">
-          <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-            New
-          </div> -->
-          <div class="card position-relative">
-            <a href="single-product.html"><img src="images/item16.jpg" class="img-fluid rounded-4" alt="image"></a>
-            <div class="card-body p-0">
-              <a href="single-product.html">
-                <h3 class="card-title pt-4 m-0">Kẹo kitkat</h3>
-              </a>
-
-              <div class="card-text">
-                <span class="rating secondary-font">
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                  5.0</span>
-
-                <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                <div class="d-flex flex-wrap mt-3">
-                  <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                    <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                  </a>
-                  <a href="#" class="btn-wishlist px-4 pt-3 ">
-                    <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                  </a>
-                </div>
-
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-
-      </div>
-
-
-    </div>
-  </section>
-
-  <section id="bestselling" class="my-5 overflow-hidden">
-    <div class="container py-5 mb-5">
-
-      <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
-        <h2 class="display-3 fw-normal">Sản phẩm bán chạy</h2>
-        <div>
-          <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-            shop now
-            <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-              <use xlink:href="#arrow-right"></use>
-            </svg></a>
         </div>
       </div>
-
-      <div class=" swiper bestselling-swiper">
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item5.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Chuồng chó</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
+    </section>
+    <!-- Footer -->
+    <footer id="footer" class="overflow-hidden">
+      <div class="container">
+        <div class="row">
+          <div class="footer-top-area">
+            <div class="row d-flex flex-wrap justify-content-between">
+              <div class="col-lg-3 col-sm-6 pb-3">
+                <div class="footer-menu">
+                  <img src="images/main-logo.png" alt="logo">
+                  <p>Ngoại trừ, vì cuộc sống, bây giờ là bóng rổ. Hãy để Cục tiếp quản. Khối lượng cuộc đời nặng nề của người đàn ông bằng đồng không còn quan trọng nữa.</p>
+                  <div class="social-links">
+                    <ul class="d-flex list-unstyled">
+                      <li>
+                        <a href="#">
+                          <svg class="facebook">
+                            <use xlink:href="#facebook" />
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="instagram">
+                            <use xlink:href="#instagram" />
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="twitter">
+                            <use xlink:href="#twitter" />
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="linkedin">
+                            <use xlink:href="#linkedin" />
+                          </svg>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <svg class="youtube">
+                            <use xlink:href="#youtube" />
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
                   </div>
-
-
                 </div>
-
+              </div>
+              <div class="col-lg-2 col-sm-6 pb-3">
+                <div class="footer-menu text-uppercase">
+                  <h5 class="widget-title pb-2">Liên kết</h5>
+                  <ul class="menu-list list-unstyled text-uppercase">
+                    <li class="menu-item pb-2">
+                      <a href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="menu-item pb-2">
+                      <a href="shop.html">Cửa hàng</a>
+                    </li>
+                    <li class="menu-item pb-2">
+                      <a href="#">Blogs</a>
+                    </li>
+                    <li class="menu-item pb-2">
+                      <a href="contact.html">Liên hệ</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 pb-3">
+                <div class="footer-menu text-uppercase">
+                  <h5 class="widget-title pb-2">Trợ giúp</h5>
+                  <ul class="menu-list list-unstyled">
+                    <li class="menu-item pb-2">
+                      <a href="#">THEO DÕI ĐƠN HÀNG CỦA BẠN</a>
+                    </li>
+                    <li class="menu-item pb-2">
+                      <a href="#">CHÍNH SÁCH TRẢ LẠI</a>
+                    </li>
+                    <li class="menu-item pb-2">
+                      <a href="#">Vận chuyển</a>
+                    </li>
+                    <li class="menu-item pb-2">
+                      <a href="#">Liên hệ</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-6 pb-3">
+                <div class="footer-menu contact-item">
+                  <h5 class="widget-title text-uppercase pb-2">Liên hệ chúng tôi</h5>
+                  <p>Bạn có bất kỳ thắc mắc hoặc gợi ý nào không? <a href="mailto:">yourinfo@gmail.com</a>
+                  </p>
+                  <p>Nếu bạn cần hỗ trợ? Chỉ cần gọi cho chúng tôi. <a href="">+55 111 222 333 44</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item6.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Hộp sữa</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              Sale
-            </div>
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item7.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Hoodies vàng</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item8.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo dạ</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              -10%
-            </div>
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item3.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo ấm</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-              New
-            </div> -->
-            <div class="card position-relative">
-              <a href="single-product.html"><img src="images/item4.jpg" class="img-fluid rounded-4" alt="image"></a>
-              <div class="card-body p-0">
-                <a href="single-product.html">
-                  <h3 class="card-title pt-4 m-0">Áo sơ mi</h3>
-                </a>
-
-                <div class="card-text">
-                  <span class="rating secondary-font">
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
-                    5.0</span>
-
-                  <h3 class="secondary-font text-primary">120.000đ</h3>
-
-                  <div class="d-flex flex-wrap mt-3">
-                    <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
-                      <h5 class="text-uppercase m-0">Giỏ hàng</h5>
-                    </a>
-                    <a href="#" class="btn-wishlist px-4 pt-3 ">
-                      <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
-                    </a>
-                  </div>
-
-
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-
         </div>
       </div>
-      <!-- / category-carousel -->
+      <hr>
+    </footer>
 
-
-    </div>
-  </section>
-
-
-  <section id="service">
-    <div class="container py-5 my-5">
-      <div class="row g-md-5 pt-4">
-        <div class="col-md-3 my-3">
-          <div class="card">
-            <div>
-              <iconify-icon class="service-icon text-primary" icon="la:shopping-cart"></iconify-icon>
-            </div>
-            <h3 class="card-title py-2 m-0">Vận chuyển Free</h3>
-            <div class="card-text">
-              <p class="blog-paragraph fs-6">Các phương thức vận chuyển đều miễn phí.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 my-3">
-          <div class="card">
-            <div>
-              <iconify-icon class="service-icon text-primary" icon="la:user-check"></iconify-icon>
-            </div>
-            <h3 class="card-title py-2 m-0">100% thanh toán</h3>
-            <div class="card-text">
-              <p class="blog-paragraph fs-6">Thanh toán nhanh, với nhiều phương thức khác nhau</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 my-3">
-          <div class="card">
-            <div>
-              <iconify-icon class="service-icon text-primary" icon="la:tag"></iconify-icon>
-            </div>
-            <h3 class="card-title py-2 m-0">Ưu đãi mỗi ngày</h3>
-            <div class="card-text">
-              <p class="blog-paragraph fs-6">Mỗi ngày sẽ có nhiều ưu đãi khác nhau.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 my-3">
-          <div class="card">
-            <div>
-              <iconify-icon class="service-icon text-primary" icon="la:award"></iconify-icon>
-            </div>
-            <h3 class="card-title py-2 m-0">Chất lượng tốt</h3>
-            <div class="card-text">
-              <p class="blog-paragraph fs-6">Sản phẩm luôn đảm bảo chất lượng cao.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="insta" class="my-5">
-    <div class="row g-0 py-5">
-      <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
-        <a href="#">
-          <img src="images/insta1.jpg" alt="insta-img" class="img-fluid rounded-3">
-        </a>
-      </div>
-      <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
-        <a href="#">
-          <img src="images/insta2.jpg" alt="insta-img" class="img-fluid rounded-3">
-        </a>
-      </div>
-      <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
-        <a href="#">
-          <img src="images/insta3.jpg" alt="insta-img" class="img-fluid rounded-3">
-        </a>
-      </div>
-      <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
-        <a href="#">
-          <img src="images/insta4.jpg" alt="insta-img" class="img-fluid rounded-3">
-        </a>
-      </div>
-      <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
-        <a href="#">
-          <img src="images/insta5.jpg" alt="insta-img" class="img-fluid rounded-3">
-        </a>
-      </div>
-      <div class="col instagram-item  text-center position-relative">
-        <div class="icon-overlay d-flex justify-content-center position-absolute">
-          <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
-        </div>
-        <a href="#">
-          <img src="images/insta6.jpg" alt="insta-img" class="img-fluid rounded-3">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <footer id="footer" class="my-5">
-    <div class="container py-5 my-5">
-      <div class="row">
-
-        <div class="col-md-3">
-          <div class="footer-menu">
-            <img src="images/logo.png" alt="logo">
-            <p class="blog-paragraph fs-6 mt-3">Đăng ký nhận bản tin của chúng tôi để nhận thông tin cập nhật về các ưu đãi lớn của chúng tôi.</p>
-            <div class="social-links">
-              <ul class="d-flex list-unstyled gap-2">
-                <li class="social">
-                  <a href="#">
-                    <iconify-icon class="social-icon" icon="ri:facebook-fill"></iconify-icon>
-                  </a>
-                </li>
-                <li class="social">
-                  <a href="#">
-                    <iconify-icon class="social-icon" icon="ri:twitter-fill"></iconify-icon>
-                  </a>
-                </li>
-                <li class="social">
-                  <a href="#">
-                    <iconify-icon class="social-icon" icon="ri:pinterest-fill"></iconify-icon>
-                  </a>
-                </li>
-                <li class="social">
-                  <a href="#">
-                    <iconify-icon class="social-icon" icon="ri:instagram-fill"></iconify-icon>
-                  </a>
-                </li>
-                <li class="social">
-                  <a href="#">
-                    <iconify-icon class="social-icon" icon="ri:youtube-fill"></iconify-icon>
-                  </a>
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="footer-menu">
-            <h3>Liên kết</h3>
-            <ul class="menu-list list-unstyled">
-              <li class="menu-item">
-                <a href="#" class="nav-link">Trang chủ</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="nav-link">Về chúng tôi</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="nav-link">Lời mời </a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="nav-link">Dịch vụ</a>
-              </li>
-              <li class="menu-item">
-                <a href="#" class="nav-link">Liên hệ</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="footer-menu">
-            <h3>Trợ giúp</h5>
-              <ul class="menu-list list-unstyled">
-                <li class="menu-item">
-                  <a href="#" class="nav-link">FAQs</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Phương thức</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Hoàn tiền</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Thanh toán</a>
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="nav-link">Vận chuyển</a>
-                </li>
-              </ul>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div>
-            <h3>Bản tin</h3>
-            <p class="blog-paragraph fs-6">Đăng ký nhận bản tin của chúng tôi để nhận thông tin cập nhật về các ưu đãi lớn của chúng tôi.</p>
-            <div class="search-bar border rounded-pill border-dark-subtle px-2">
-              <form class="text-center d-flex align-items-center" action="" method="">
-                <input type="text" class="form-control border-0 bg-transparent" placeholder="Điền email của bạn" />
-                <iconify-icon class="send-icon" icon="tabler:location-filled"></iconify-icon>
-              </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </footer>
-
-
-  <script src="js/jquery-1.11.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/script.js"></script>
-  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-</body>
-
+    
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
 </html>
